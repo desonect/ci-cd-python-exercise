@@ -36,4 +36,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add version.txt
           git commit -m "Atualiza para versão $new_version"
-          git push
+          echo "${{ secrets.GITHUB_TOKEN }}" | git push https://github.com/desonect/ci-cd-python-exercise.git HEAD:main
