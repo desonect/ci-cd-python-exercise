@@ -1,5 +1,5 @@
 def soma(a, b):
-    return a + b + 1 # Introduzindo um erro proposital
+    return a + b # Corrigindo o erro
 
 if __name__ == "__main__":
     resultado = soma(3, 5)
