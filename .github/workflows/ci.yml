@@ -25,3 +25,14 @@ jobs:
       - name: Run tests
         run: |
           python -m unittest discover tests
+          
+      - name: Increment version  
+        run: |
+          version=$(cat version.txt)
+          new_version=$(echo $version | awk -F. -v OFS=. '{$NF++; print}')
+          echo $new_version > version.txt
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add version.txt
+          git commit -m "Atualiza para versão $new_version"
+          git push
